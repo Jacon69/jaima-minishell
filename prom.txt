@@ -1,2 +1,44 @@
 hola como va
 bien pero nos vemos
+exit
+hola
+exit
+exit
+exit
+exit
+exit
+exit
+ecit
+exit
+env
+expot MIDATO="JAime"
+env
+unset TERM
+env
+exit
+unset SHELL
+env
+env
+unset SHELL
+env
+env
+env
+env
+env
+export SEVILLA=123
+env
+env
+env
+env
+unset
+unset
+unset WER
+unset WER
+unset WER
+unset TERM
+env
+env
+env
+env
+unset PWD
+env
