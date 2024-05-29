@@ -8,7 +8,7 @@ int main(int narg, char * carg[], char **environment)
     t_list  **env;
     char **var_entorno;
 
-    narg ++;
+    narg ++; //para que no salten los warnings que saltan si no se usan las variables.
     carg [0] = "hola"; 
     env = ft_ini_env(environment);  //Malloc
        

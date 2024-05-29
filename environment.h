@@ -18,6 +18,8 @@ t_list  **ft_ini_env(char **environment);
 char	**ft_get_env(t_list  **env);    
 void    ft_del_v_env(char *var_env, t_list **env);//Borro si existe variable de entorno.
 void    ft_add_v_env(char *var_env, t_list **env);//Añado variable de entorno.
+void	ft_pwd(t_list **env); //Imprime el directorio actual
+void 	ft_$echo(char *var, t_list **env); //Imprime expandido el valor de una variable de entorno
 
 
 

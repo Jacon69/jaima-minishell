@@ -4,6 +4,7 @@
 void ft_ejecutar(char *line, t_list  **env)
 {
     char **args;
+	char *aux;
  //   int i;
 
     args = ft_split(line, ' ');
@@ -13,14 +14,45 @@ void ft_ejecutar(char *line, t_list  **env)
     {
         ft_lstiter(*env, print_string); //##PRUEBA## Imprime la lista de variables de entorno
     }
-    else if (ft_strcmp(args[0], "export") == 0)
+    else if ((ft_strcmp(args[0], "export") == 0) && ((ft_memchr(args[1], '=', ft_strlen(args[1]))!= NULL)))
     {
-        ft_add_v_env(args[1], env);  //ft_export(args);
+        ft_add_v_env(args[1], env);
     }
+	else if ((ft_strcmp(args[0], "export") == 0) && (args[1] == NULL))
+	{
+		ft_lstiter(*env, print_string); //##PRUEBA## Imprime la lista de variables de entorno
+	}
+	else if (ft_strcmp(args[0], "export") == 0)
+		return;
     else if (ft_strcmp(args[0], "unset") == 0)
     {
-        ft_del_v_env(args[1], env);  //Crear un ft_unset
+        ft_del_v_env(args[1], env); 
     }
+    else if (ft_strcmp(args[0], "cd") == 0)
+    {
+      //  ft_chdir(args[1]);                   //Crear un ft_chdir
+    }
+    else if (ft_strcmp(args[0], "pwd") == 0)
+	{
+		ft_pwd(env);                         //Crear un ft_pwd
+	}
+    else if (ft_strcmp(args[0], "echo") == 0)
+		if (args[1][0] != '$')
+        	ft_printf("%s\n", args[1]);
+		else
+		{
+			aux = args[1];
+			aux++;
+			ft_$echo(aux, env);
+		}
+    else if (ft_strcmp(args[0], "exit") == 0)
+    {
+        ft_free_char(args);
+        ft_free_list(env);
+        exit(0);
+    }
+    else
+        printf("Comando no encontrado\n");
 }
 
 void prom(t_list  **env) 
